@@ -42,7 +42,7 @@ func main() {
 	setting.BuildStamp = buildstampInt64
 
 	go func() {
-		c := make(chan os.Signal, 1)
+		c := make(chan os.Signal)
 		signal.Notify(c, os.Interrupt)
 		<-c
 		os.Exit(0)
